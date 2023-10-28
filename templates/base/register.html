@@ -1,0 +1,140 @@
+{% include 'base/header.html' %}
+    {% block  content  %}
+    
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-2">
+                    {% if form.error %}
+
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <strong> {{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                        {% for error in form.non_field_errors %}
+                            <div class="aler alert-danger"> 
+                                <strong> {{ error|escape }} </strong>
+                            </div>
+                        {% endfor %}
+                    {%endif %}
+                </div>
+                
+                
+                
+                <div class = "col-md-6">
+                    <div class =" form-group position-relative">
+                        <lable> first name <span class ="text-danger">*</span></lable>
+                        {{ form.first_name }} 
+                    </div>
+                </div>
+
+
+                {% if form.first_name.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} <\strong>
+                    <div>
+                {% endif %}
+
+
+                <div class = "col-md-6">
+                    <div class =" form-group position-relative">
+                        <lable> last  name <span class ="text-danger">*</span></lable>
+                        {{ form.last_name }} 
+                    </div>
+                </div>
+
+
+                {% if form.last_name.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} <\strong>
+                    <div>
+                {% endif %}
+
+
+                <div class = "col-md-6">
+                    <div class =" form-group position-relative">
+                        <lable> user name <span class ="text-danger">*</span></lable>
+                        {{ form.username }} 
+                    </div>
+                </div>
+
+
+                {% if form.username.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} </strong>
+                    <div>
+                {% endif %}
+
+                <div class = "col-md-6">
+                    <div class =" form-group position-relative">
+                        <lable> email <span class ="text-danger">*</span></lable>
+                        {{ form.email }} 
+                    </div>
+                </div>
+
+
+                {% if form.email.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} <\strong>
+                    <div>
+                {% endif %}
+
+
+                <div class = "col-md-6">
+                    <div class =" form-group position-relative">
+                        <lable> password  <span class ="text-danger">*</span></lable>
+                        {{ form.password1 }} 
+                    </div>
+                </div>
+
+
+                {% if form.passsword1.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} <\strong>
+                    <div>
+                {% endif %}
+
+
+
+                <div class = "col-md-6">
+                    <div class =" form-group position-relative">
+                        <lable> confrim password <span class ="text-danger">*</span></lable>
+                        {{ form.password2 }} 
+                    </div>
+                </div>
+
+
+                {% if form.password2.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} <\strong>
+                    <div>
+                {% endif %}
+
+
+                <div class = "col-md-6">
+                    <div class =" form-group">
+                        {{ form.check }}
+                        <lable> I ACCEPT<a a href ="" class=" text-primary"> terms and condtion </a></lable>
+                    </div>
+                </div>
+
+
+                {% if form.check.errors %}
+                    {% for error in check.errors %}
+                    <div class= " alert aler-danger">
+                        <strong>{{ error|escape }} <\strong>
+                    <div>
+                    {% endfor %}
+                {% endif %}
+                        
+                <div class =" col-md-2">
+                    <button clss="btn-primary w-100" type="submit"> Register </button>
+                </div>                    
+            
+            </div>
+    {% endblock %}
+{% include 'base/footer.html' %}
